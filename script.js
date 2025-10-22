@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       id: 'royal-society-research',
       title: 'Royal Society Lead Researcher',
+      badge: 'gold',
       subtitle: 'Climate resilience in endangered Arctic alpine plants',
       summary:
         'Secured the Royal Society Student Partnership Grant to study how climate change alters the physiology of endangered Arctic alpine plants, sharing discoveries at national exhibitions.',
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'stem-racing-principal',
       title: 'Team Principal & Head of R&D',
       subtitle: 'STEM Racing champion team',
+      badge: 'gold',
       summary:
         'Led STEM Racing to championship victories through advanced CAD/CFD pipelines, high-performance testing, and mentorship that elevated the entire team.',
       meta: [
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'neurocardio-innovation',
       title: 'Neurocardiology Innovation Summit',
       subtitle: 'Runner-up team lead researcher',
+      badge: 'silver',
       summary:
         'Directed research for a runner-up solution at a neurocardiological innovation summit, proposing cross-disciplinary diagnostics to close clinical care gaps.',
       meta: [
@@ -46,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'jersey-techawards',
       title: 'Jersey TechAwards Winner',
       subtitle: 'National recognition for STEM leadership',
+      badge: 'gold',
       summary:
         'Honored by the Jersey TechAwards for impact across scientific research, technology advocacy, and youth leadership.',
       meta: [
@@ -60,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'computational-physics',
       title: 'International Computational Physics Olympiad',
       subtitle: 'Silver Medalist',
+      badge: 'silver',
       summary:
         'Earned international silver for advanced modeling and problem solving at the International Computational Physics Olympiad.',
       meta: [
@@ -74,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'young-musician',
       title: 'Jersey Young Musician of the Year',
       subtitle: '2nd place · Two consecutive years',
+      badge: 'silver',
       summary:
         'Violin virtuoso with back-to-back runner-up finishes, leading orchestras as concertmaster and shaping ensemble sound with expressive leadership.',
       meta: [
@@ -88,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'lung-cancer-initiative',
       title: 'American Lung Cancer Screening Initiative',
       subtitle: 'Research contributor',
+      badge: 'none',
       summary:
         'Advanced insights into early detection and screening access as a researcher with the American Lung Cancer Screening Initiative.',
       meta: [
@@ -102,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'hpq-ai-oncology',
       title: 'HPQ Research Project — AI in Cancer Research',
       subtitle: 'A* grade (100%)',
+      badge: 'gold',
       summary:
         'Produced a high-distinction HPQ exploring how artificial intelligence is redefining oncological research and personalised treatment pathways.',
       meta: [
@@ -116,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'weekly-spaceman',
       title: 'The Weekly Spaceman',
       subtitle: 'Senior Writer, Editor & COO',
+      badge: 'none',
       summary:
         'Steers editorial vision and operations for The Weekly Spaceman, spotlighting science storytelling that inspires global youth communities.',
       meta: [
@@ -130,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'german-eisteddfod',
       title: 'German Eisteddfod Champion',
       subtitle: 'Winner · Two years running',
+      badge: 'gold',
       summary:
         'Awarded consecutive wins at the German Eisteddfod, showcasing linguistic excellence and cultural curiosity.',
       meta: [
@@ -144,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'history-essay',
       title: 'Beaulieu History Essay Competition',
       subtitle: 'Winner',
+      badge: 'gold',
       summary:
         'Captured top honours in the Beaulieu History Essay Competition with rigorous research, narrative finesse, and bold arguments.',
       meta: [
@@ -158,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
       id: 'government-presenter',
       title: 'Government Conferences & Panels',
       subtitle: 'Presenter & Youth Advocate',
+      badge: 'none',
       summary:
         'Regularly invited to government conferences, panels, and debates, demonstrating national leadership as an advocate for science and youth empowerment.',
       meta: [
@@ -268,6 +280,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // Group achievements by category
+  const achievementCategories = [
+    {
+      name: 'Science & Research',
+      icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 3.2H15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.6 3.2V8.8L6.5 15.5C5.8 16.7 6.7 18.2 8.1 18.2H15.9C17.3 18.2 18.2 16.7 17.5 15.5L13.4 8.8V3.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M8.4 12.6H15.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17.6" cy="6" r="1.4" stroke="currentColor" stroke-width="1.4"/>
+      </svg>`,
+      achievements: ['royal-society-research', 'hpq-ai-oncology', 'lung-cancer-initiative', 'computational-physics', 'neurocardio-innovation']
+    },
+    {
+      name: 'Engineering & Technology',
+      icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`,
+      achievements: ['stem-racing-principal', 'jersey-techawards']
+    },
+    {
+      name: 'Music & Arts',
+      icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 5.2V16.1C9 17.7 7.7 19 6.1 19C4.5 19 3.2 17.7 3.2 16.1C3.2 14.5 4.5 13.2 6.1 13.2C6.8 13.2 7.5 13.5 8 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9 5L21 3V11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`,
+      achievements: ['young-musician']
+    },
+    {
+      name: 'Writing & Communication',
+      icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17 3a2.83 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>`,
+      achievements: ['weekly-spaceman', 'history-essay', 'german-eisteddfod']
+    },
+    {
+      name: 'Leadership & Advocacy',
+      icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="7" r="2.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 20.6V19.1C5 16.7 6.9 14.8 9.3 14.8H14.7C17.1 14.8 19 16.7 19 19.1V20.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 3L13.2 5.1L15.6 5.5L13.9 7.2L14.3 9.6L12 8.4L9.7 9.6L10.1 7.2L8.4 5.5L10.8 5.1L12 3Z" fill="currentColor"/>
+      </svg>`,
+      achievements: ['government-presenter']
+    }
+  ];
+
   const achievementsGrid = document.querySelector('.achievements-grid');
   const panel = document.getElementById('achievement-panel');
   const panelBackdrop = panel.querySelector('.panel-backdrop');
@@ -286,29 +343,62 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const formatSubtitle = (subtitle) => (subtitle ? `<span>${subtitle}</span>` : '');
 
-  achievements.forEach((item) => {
-    const card = document.createElement('article');
-    card.className = 'achievement-card scroll-reveal evee-heartbeat';
-    card.setAttribute('data-achievement', item.id);
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-controls', 'achievement-panel');
-    card.innerHTML = `
-      ${formatSubtitle(item.subtitle)}
-      <h3>${item.title}</h3>
-      <p>${item.summary}</p>
-    `;
+  // Create achievement lookup map
+  const achievementMap = {};
+  achievements.forEach(item => {
+    achievementMap[item.id] = item;
+  });
 
-    const handleOpen = () => openPanel(item, card);
-    card.addEventListener('click', handleOpen);
-    card.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        handleOpen();
-      }
+  // Render achievements grouped by category
+  achievementCategories.forEach(category => {
+    // Create category section
+    const categorySection = document.createElement('div');
+    categorySection.className = 'achievement-category';
+
+    // Create category header
+    const categoryHeader = document.createElement('div');
+    categoryHeader.className = 'achievement-category-header scroll-reveal';
+    categoryHeader.innerHTML = `
+      <div class="category-icon">${category.icon}</div>
+      <h3 class="category-title">${category.name}</h3>
+    `;
+    categorySection.appendChild(categoryHeader);
+
+    // Create category grid
+    const categoryGrid = document.createElement('div');
+    categoryGrid.className = 'achievement-category-grid';
+
+    // Add achievement cards for this category
+    category.achievements.forEach(achievementId => {
+      const item = achievementMap[achievementId];
+      if (!item) return;
+
+      const card = document.createElement('article');
+      card.className = 'achievement-card scroll-reveal evee-heartbeat';
+      card.setAttribute('data-achievement', item.id);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-controls', 'achievement-panel');
+      card.innerHTML = `
+        ${formatSubtitle(item.subtitle)}
+        <h3>${item.title}</h3>
+        <p>${item.summary}</p>
+      `;
+
+      const handleOpen = () => openPanel(item, card);
+      card.addEventListener('click', handleOpen);
+      card.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          handleOpen();
+        }
+      });
+
+      categoryGrid.appendChild(card);
     });
 
-    achievementsGrid.appendChild(card);
+    categorySection.appendChild(categoryGrid);
+    achievementsGrid.appendChild(categorySection);
   });
 
   // evee-panel-magic-handler
@@ -508,6 +598,406 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', () => {
     syncOpenNarrativePanels();
   });
+
+  // ==========================================
+  // NEW FEATURES - Evee Amazing Enhancements
+  // ==========================================
+
+  // 1. Loading Screen with Team Ekleipsis arrival animation
+  const loadingScreen = document.getElementById('loading-screen');
+  const coinWrapper = document.querySelector('.coin-wrapper');
+  let loaderFadeTimeout = null;
+  let siteActivated = false;
+  const jsPrefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+  const activateSite = () => {
+    if (siteActivated) return;
+    siteActivated = true;
+    document.body.classList.add('site-ready');
+  };
+
+  const scheduleLoaderFade = (delay = 3600) => {
+    if (!loadingScreen) return;
+    if (loaderFadeTimeout) {
+      clearTimeout(loaderFadeTimeout);
+    }
+    loaderFadeTimeout = setTimeout(() => {
+      activateSite();
+      loadingScreen.classList.add('fade-out');
+      setTimeout(() => {
+        loadingScreen.style.display = 'none';
+      }, 600);
+    }, delay);
+  };
+
+  const coinInner = document.querySelector('.coin-inner');
+  if (coinInner) {
+    coinInner.addEventListener('animationend', event => {
+      if (event.animationName === 'coinFlip') {
+        loadingScreen?.classList.add('loading-screen--revealing');
+        if (jsPrefersReducedMotion) {
+          activateSite();
+          scheduleLoaderFade(600);
+        } else {
+          requestAnimationFrame(() => {
+            if (!coinWrapper?.classList.contains('coin-wrapper--exit')) {
+              coinWrapper?.classList.add('coin-wrapper--exit');
+            }
+          });
+        }
+      }
+    });
+  }
+
+  if (coinWrapper) {
+    coinWrapper.addEventListener('animationend', event => {
+      if (event.animationName === 'coinGlide') {
+        activateSite();
+        scheduleLoaderFade(jsPrefersReducedMotion ? 400 : 320);
+      }
+    });
+  }
+
+  window.addEventListener('load', () => {
+    scheduleLoaderFade(jsPrefersReducedMotion ? 2400 : 6700);
+  });
+
+  loadingScreen?.addEventListener('click', () => {
+    scheduleLoaderFade(0);
+  });
+
+  // 2. Scroll Progress Indicator
+  const scrollProgressBar = document.getElementById('scroll-progress-bar');
+  function updateScrollProgress() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = (scrollTop / docHeight) * 100;
+    scrollProgressBar.style.width = scrollPercent + '%';
+  }
+  window.addEventListener('scroll', updateScrollProgress);
+
+  // 3. Back to Top Button
+  const backToTopBtn = document.getElementById('back-to-top');
+  function toggleBackToTop() {
+    if (window.scrollY > 500) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', toggleBackToTop);
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 4. Mobile Sidebar Navigation
+  const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileSidebar = document.getElementById('mobile-sidebar');
+  const mobileSidebarClose = document.getElementById('mobile-sidebar-close');
+  const mobileSidebarBackdrop = document.getElementById('mobile-sidebar-backdrop');
+
+  function openMobileSidebar() {
+    mobileSidebar.classList.add('open');
+    mobileMenuToggle.classList.add('active');
+    mobileSidebarBackdrop.classList.add('active');
+    body.classList.add('no-scroll');
+  }
+
+  function closeMobileSidebar() {
+    mobileSidebar.classList.remove('open');
+    mobileMenuToggle.classList.remove('active');
+    mobileSidebarBackdrop.classList.remove('active');
+    body.classList.remove('no-scroll');
+  }
+
+  mobileMenuToggle.addEventListener('click', () => {
+    if (mobileSidebar.classList.contains('open')) {
+      closeMobileSidebar();
+    } else {
+      openMobileSidebar();
+    }
+  });
+
+  mobileSidebarClose.addEventListener('click', closeMobileSidebar);
+  mobileSidebarBackdrop.addEventListener('click', closeMobileSidebar);
+
+  // Close sidebar when clicking on a link
+  document.querySelectorAll('.mobile-sidebar-nav a').forEach(link => {
+    link.addEventListener('click', closeMobileSidebar);
+  });
+
+  // 5. Animated Counting Statistics
+  function animateCounter(element, target, duration = 2000) {
+    const start = 0;
+    const increment = target / (duration / 16); // 60fps
+    let current = start;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        element.textContent = target + '+';
+        clearInterval(timer);
+      } else {
+        element.textContent = Math.floor(current) + '+';
+      }
+    }, 16);
+  }
+
+  // Observe hero stats and trigger animation
+  const heroStatsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+          entry.target.classList.add('counted');
+          const statNumbers = entry.target.querySelectorAll('.stat-number');
+          statNumbers.forEach(stat => {
+            const text = stat.textContent;
+            const number = parseInt(text.replace('+', ''));
+            stat.textContent = '0+';
+            setTimeout(() => {
+              animateCounter(stat, number, 2000);
+            }, 300);
+          });
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) {
+    heroStatsObserver.observe(heroStats);
+  }
+
+  // 6. Achievement Badge Unlock Animations
+  const achievementCards = document.querySelectorAll('.achievement-card');
+  achievementCards.forEach(card => {
+    const achievementId = card.getAttribute('data-achievement');
+    const achievement = achievementMap[achievementId];
+
+    // Only add badge if the achievement has one
+    if (achievement && achievement.badge && achievement.badge !== 'none') {
+      const badge = document.createElement('div');
+      badge.className = `achievement-badge ${achievement.badge}`;
+      badge.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor"/>
+        </svg>
+      `;
+      card.appendChild(badge);
+    }
+  });
+
+  // Unlock badges on scroll
+  const badgeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('unlocked');
+          }, 200);
+          badgeObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  achievementCards.forEach(card => {
+    badgeObserver.observe(card);
+  });
+
+  // 7. Parallax Scrolling Effect
+  function handleParallax() {
+    const scrolled = window.scrollY;
+    const heroImage = document.querySelector('.hero-image');
+
+    // Gentle parallax on hero image
+    if (heroImage && scrolled < window.innerHeight) {
+      heroImage.style.transform = `translateY(${scrolled * 0.15}px)`;
+    }
+
+    // Subtle parallax on sections (excluding hero)
+    document.querySelectorAll('.section').forEach((section, index) => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        const offset = (window.innerHeight - rect.top) * 0.03;
+        section.style.transform = `translateY(${offset}px)`;
+      }
+    });
+  }
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleParallax();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  // 8. PDF Resume Generator with jsPDF
+  function generatePDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Set colors
+    const primaryColor = [22, 163, 74]; // Green
+    const secondaryColor = [45, 90, 63];
+    const lightGreen = [220, 252, 231];
+
+    // Add custom fonts and styling
+    doc.setFont('helvetica');
+
+    // Header Background
+    doc.setFillColor(...lightGreen);
+    doc.rect(0, 0, 210, 50, 'F');
+
+    // Title
+    doc.setFontSize(28);
+    doc.setTextColor(...primaryColor);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Eve Mary Carruthers', 105, 20, { align: 'center' });
+
+    // Subtitle
+    doc.setFontSize(12);
+    doc.setTextColor(...secondaryColor);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Researcher · Innovator · Leader', 105, 28, { align: 'center' });
+
+    // Contact Info
+    doc.setFontSize(9);
+    doc.setTextColor(80, 80, 80);
+    doc.text('evemarycarruthers@gmail.com | @EveCarruthers_', 105, 36, { align: 'center' });
+
+    let yPos = 60;
+
+    // Professional Summary
+    doc.setFontSize(14);
+    doc.setTextColor(...primaryColor);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Professional Summary', 20, yPos);
+    yPos += 8;
+
+    doc.setFontSize(10);
+    doc.setTextColor(60, 60, 60);
+    doc.setFont('helvetica', 'normal');
+    const summary = 'Distinguished researcher and STEM leader with expertise spanning climate resilience, AI in healthcare, and computational physics. Royal Society grant recipient and international medalist, committed to bridging cutting-edge science with real-world impact through research, advocacy, and mentorship.';
+    const splitSummary = doc.splitTextToSize(summary, 170);
+    doc.text(splitSummary, 20, yPos);
+    yPos += splitSummary.length * 5 + 10;
+
+    // Achievements Section
+    doc.setFontSize(14);
+    doc.setTextColor(...primaryColor);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Key Achievements', 20, yPos);
+    yPos += 8;
+
+    const keyAchievements = [
+      'Royal Society Student Partnership Grant - Lead Researcher on Arctic alpine plant physiology',
+      'International Computational Physics Olympiad - Silver Medal',
+      'Jersey TechAwards Winner - Recognition for STEM leadership and innovation',
+      'STEM Racing Team Principal & Head of R&D - Championship team leader',
+      'HPQ Research Project on AI in Cancer Research - A* Grade (100%)',
+      'American Lung Cancer Screening Initiative - Research Contributor',
+      'Jersey Young Musician of the Year - 2nd Place (2 consecutive years)'
+    ];
+
+    doc.setFontSize(10);
+    doc.setTextColor(60, 60, 60);
+    doc.setFont('helvetica', 'normal');
+
+    keyAchievements.forEach((achievement, index) => {
+      if (yPos > 270) {
+        doc.addPage();
+        yPos = 20;
+      }
+      doc.setFillColor(...primaryColor);
+      doc.circle(22, yPos - 2, 1.5, 'F');
+      const lines = doc.splitTextToSize(achievement, 165);
+      doc.text(lines, 27, yPos);
+      yPos += lines.length * 5 + 3;
+    });
+
+    yPos += 5;
+
+    // Leadership & Involvement
+    if (yPos > 250) {
+      doc.addPage();
+      yPos = 20;
+    }
+
+    doc.setFontSize(14);
+    doc.setTextColor(...primaryColor);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Leadership & Involvement', 20, yPos);
+    yPos += 8;
+
+    const leadership = [
+      'Jersey Youth Parliament - Active member advocating for youth perspectives',
+      'Government Conferences & Panels - Regular presenter on STEM education',
+      'Science Prefect - Mentoring STEM Racing teams and younger students',
+      'The Weekly Spaceman - Senior Writer, Editor & COO',
+      'Jersey Youth Symphony Orchestra - Member and performer',
+      'Concertmaster - Two orchestras, leading ensemble sound'
+    ];
+
+    doc.setFontSize(10);
+    doc.setTextColor(60, 60, 60);
+    doc.setFont('helvetica', 'normal');
+
+    leadership.forEach(item => {
+      if (yPos > 270) {
+        doc.addPage();
+        yPos = 20;
+      }
+      doc.setFillColor(...primaryColor);
+      doc.circle(22, yPos - 2, 1.5, 'F');
+      const lines = doc.splitTextToSize(item, 165);
+      doc.text(lines, 27, yPos);
+      yPos += lines.length * 5 + 3;
+    });
+
+    // Footer
+    const pageCount = doc.internal.getNumberOfPages();
+    for (let i = 1; i <= pageCount; i++) {
+      doc.setPage(i);
+      doc.setFontSize(8);
+      doc.setTextColor(150, 150, 150);
+      doc.text(
+        `Generated with love · Page ${i} of ${pageCount}`,
+        105,
+        285,
+        { align: 'center' }
+      );
+    }
+
+    // Save the PDF
+    doc.save('Eve_Mary_Carruthers_Resume.pdf');
+  }
+
+  // Add event listeners for PDF download buttons
+  const downloadResumeBtn = document.getElementById('download-resume-btn');
+  const downloadResumeMobile = document.getElementById('download-resume-mobile');
+
+  if (downloadResumeBtn) {
+    downloadResumeBtn.addEventListener('click', generatePDF);
+  }
+
+  if (downloadResumeMobile) {
+    downloadResumeMobile.addEventListener('click', () => {
+      generatePDF();
+      closeMobileSidebar();
+    });
+  }
+
+  // 9. Smooth Section Transitions (already handled by scroll-reveal)
+  // The existing scroll-reveal implementation provides smooth transitions
+
+  console.log('All enhancements loaded successfully! 🏎️✨');
 });
 
 // Hidden whisper: evee-lightspeed-love

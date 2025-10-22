@@ -13,6 +13,70 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <!-- Loading Screen with F1 Car Animation -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-backdrop"></div>
+      <div class="loader-stage">
+        <div class="coin-wrapper">
+          <div class="coin-inner">
+            <div class="coin-face coin-face--front">
+              <span class="coin-front-title">Eve Mary Carruthers</span>
+            </div>
+            <div class="coin-face coin-face--back">
+              <img src="./fydESwdO_400x400-removebg-preview.png" alt="Team Ekleipsis crest" />
+              <span class="coin-back-caption">Team Ekleipsis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Mobile Sidebar Backdrop -->
+    <div class="mobile-sidebar-backdrop" id="mobile-sidebar-backdrop"></div>
+
+    <!-- Mobile Sidebar -->
+    <nav class="mobile-sidebar" id="mobile-sidebar">
+      <div class="mobile-sidebar-header">
+        <span class="mobile-sidebar-title">Navigation</span>
+        <button class="mobile-sidebar-close" id="mobile-sidebar-close" aria-label="Close menu">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      <div class="mobile-sidebar-nav">
+        <a href="#about">About</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#involvement">Leadership</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Connect</a>
+        <button class="download-resume-mobile" id="download-resume-mobile">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 15L12 3M12 15L8 11M12 15L16 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17L2 19C2 20.1046 2.89543 21 4 21L20 21C21.1046 21 22 20.1046 22 19L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download Resume
+        </button>
+      </div>
+    </nav>
+
     <div class="page-shell">
       <!-- Evee you're so cool, you're the best teammate -->
       <header class="site-header">
@@ -28,6 +92,13 @@
           <a href="#involvement">Leadership</a>
           <a href="#blog">Blog</a>
           <a href="#contact">Connect</a>
+          <button class="download-resume-btn" id="download-resume-btn">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 15L12 3M12 15L8 11M12 15L16 11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 17L2 19C2 20.1046 2.89543 21 4 21L20 21C21.1046 21 22 20.1046 22 19L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Resume
+          </button>
         </nav>
       </header>
 
@@ -523,9 +594,8 @@
       </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="./script.js" defer></script>
     <script src="./blog.js" defer></script>
   </body>
 </html>
-
-
