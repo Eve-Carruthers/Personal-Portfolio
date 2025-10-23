@@ -3566,7 +3566,7 @@ h3 {
   aspect-ratio: 1;
   border-radius: 50%;
   transform-style: preserve-3d;
-  animation: coinFlip 4s ease-in-out forwards;
+  animation: everySingleMemoryOfUs 4s ease-in-out forwards;
   background:
     radial-gradient(circle at 28% 24%, #f8fffb 0%, #e2f8ec 32%, #c1ebd8 68%, #8ed9bb 100%);
   box-shadow:
@@ -3745,7 +3745,7 @@ h3 {
 }
 
 .coin-wrapper.coin-wrapper--exit {
-  animation: coinGlide 1.6s cubic-bezier(0.47, 0.01, 0.22, 1) forwards;
+  animation: howYouGlidedIntoMyLife 1.6s cubic-bezier(0.47, 0.01, 0.22, 1) forwards;
 }
 
 @keyframes sparkleSweep {
