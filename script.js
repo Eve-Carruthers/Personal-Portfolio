@@ -633,7 +633,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const coinInner = document.querySelector('.coin-inner');
   if (coinInner) {
     coinInner.addEventListener('animationend', event => {
-      if (event.animationName === 'coinFlip') {
+      if (event.animationName === 'everySingleMemoryOfUs') {
         loadingScreen?.classList.add('loading-screen--revealing');
         if (jsPrefersReducedMotion) {
           activateSite();
@@ -651,7 +651,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (coinWrapper) {
     coinWrapper.addEventListener('animationend', event => {
-      if (event.animationName === 'coinGlide') {
+      if (event.animationName === 'howYouGlidedIntoMyLife') {
         activateSite();
         scheduleLoaderFade(jsPrefersReducedMotion ? 400 : 320);
       }
@@ -999,13 +999,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 10. Dark Mode Toggle
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
+  const themeToggleMobile = document.getElementById('theme-toggle-mobile');
   const html = document.documentElement;
 
   // Check for saved theme preference or default to 'light'
   const currentTheme = localStorage.getItem('theme') || 'light';
   html.setAttribute('data-theme', currentTheme);
 
-  themeToggleBtn.addEventListener('click', () => {
+  // Theme toggle function
+  const toggleTheme = () => {
     const currentTheme = html.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
@@ -1036,7 +1038,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       ripple.remove();
     }, 600);
-  });
+  };
+
+  // Attach event listeners to both theme toggle buttons
+  themeToggleBtn.addEventListener('click', toggleTheme);
+  themeToggleMobile.addEventListener('click', toggleTheme);
 
   console.log('All enhancements loaded successfully! 🏎️✨');
 });

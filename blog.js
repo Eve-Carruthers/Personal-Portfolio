@@ -331,7 +331,7 @@ class ActivityFeed {
     console.log('Twitter script appended to head');
   }
 
-  // Show Twitter fallback UI
+  // Show Twitter fallback UI with professional tweet-like cards
   showTwitterFallback() {
     const twitterSection = document.querySelector('.twitter-section');
     if (twitterSection && !twitterSection.querySelector('.twitter-fallback')) {
@@ -344,11 +344,40 @@ class ActivityFeed {
             <h3>Latest from X (Twitter)</h3>
           </div>
           <div class="twitter-fallback">
-            <p>Twitter timeline is temporarily unavailable.</p>
-            <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: var(--space-sm);">This may be due to rate limiting. Please visit my profile directly:</p>
-            <a href="https://twitter.com/${this.twitterUsername}" target="_blank" rel="noopener noreferrer" class="activity-view-more">
-              View @${this.twitterUsername} on X (Twitter) →
-            </a>
+            <div class="twitter-profile-card">
+              <div class="twitter-profile-header">
+                <div class="twitter-avatar">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </div>
+                <div class="twitter-profile-info">
+                  <h4>@${this.twitterUsername}</h4>
+                  <p>Eve Mary Carruthers</p>
+                </div>
+              </div>
+              <p class="twitter-bio">Researcher | STEM Advocate | Team Ekleipsis | Sharing insights on science, innovation, and youth leadership</p>
+              <div class="twitter-recent-topics">
+                <h5>Recent Topics:</h5>
+                <div class="twitter-topics">
+                  <span class="topic-tag">#STEMResearch</span>
+                  <span class="topic-tag">#ClimateScience</span>
+                  <span class="topic-tag">#AIinHealthcare</span>
+                  <span class="topic-tag">#YouthLeadership</span>
+                  <span class="topic-tag">#TeamEkleipsis</span>
+                </div>
+              </div>
+              <a href="https://twitter.com/${this.twitterUsername}" target="_blank" rel="noopener noreferrer" class="twitter-view-profile">
+                View Full Profile & Latest Posts →
+              </a>
+            </div>
+            <p class="twitter-fallback-note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width: 16px; height: 16px; display: inline; vertical-align: middle; margin-right: 4px;">
+                <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                <path d="M12 8v4m0 4h.01" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Live tweet feed requires Twitter API authentication. Visit the profile for real-time updates.
+            </p>
           </div>
         </div>
       `;
