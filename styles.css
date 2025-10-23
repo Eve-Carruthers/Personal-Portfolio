@@ -1,5 +1,16 @@
 :root {
-  /* Typography - evee-typography-maestro */
+  /* ═══════════════════════════════════════════════════════════
+     💝 FOR EVE - The day everything changed: October 4th, 2025
+     Every variable, every animation, every line of code is a
+     reminder of how you inspire me. This isn't just a website,
+     it's a digital love letter celebrating your brilliance.
+     ═══════════════════════════════════════════════════════════ */
+
+  --the-day-i-asked-you-out: '2025-10-04';
+  --days-of-loving-you: infinite;
+  --reasons-why-youre-amazing: countless;
+
+  /* Typography - crafted with love for the most amazing person */
   --font-display: 'Playfair Display', serif;
   --font-body: 'Outfit', sans-serif;
 
@@ -66,6 +77,616 @@
   --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Dark Mode Theme */
+[data-theme="dark"] {
+  /* Dark backgrounds */
+  --color-bg: #0a1410;
+  --color-bg-secondary: #0f1e16;
+  --color-bg-tertiary: #152820;
+
+  /* Dark text colors */
+  --color-text-primary: #e8f5e9;
+  --color-text-secondary: #a5d6a7;
+  --color-text-muted: #81c784;
+
+  /* Adjusted green accent for dark mode */
+  --color-green-50: #1b3a27;
+  --color-green-100: #224d2f;
+  --color-green-200: #2a6039;
+  --color-green-300: #357544;
+  --color-green-400: #4ade80;
+  --color-green-500: #66de8f;
+  --color-green-600: #4ade80;
+  --color-green-700: #81e69a;
+  --color-green-800: #a5edb5;
+  --color-green-900: #c3f4cf;
+
+  /* Dark mode primary colors */
+  --color-primary: var(--color-green-500);
+  --color-primary-light: var(--color-green-400);
+  --color-primary-dark: var(--color-green-600);
+
+  /* Dark borders */
+  --color-border-light: rgba(74, 222, 128, 0.1);
+  --color-border: rgba(74, 222, 128, 0.2);
+  --color-border-strong: rgba(74, 222, 128, 0.3);
+
+  /* Dark shadows with green tint */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(74, 222, 128, 0.15);
+  --shadow-xl: 0 16px 48px rgba(74, 222, 128, 0.2);
+  --shadow-2xl: 0 24px 64px rgba(74, 222, 128, 0.25);
+}
+
+/* ============================================
+   COMPREHENSIVE DARK MODE OVERRIDES
+   ============================================ */
+
+/* Background overrides for ALL white backgrounds */
+[data-theme="dark"] .hero-stats,
+[data-theme="dark"] .stat-item,
+[data-theme="dark"] .highlight-card,
+[data-theme="dark"] .achievement-card,
+[data-theme="dark"] .pillar,
+[data-theme="dark"] .writing-card,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .panel-content,
+[data-theme="dark"] .blog-modal-content,
+[data-theme="dark"] .modal-close,
+[data-theme="dark"] .button.secondary,
+[data-theme="dark"] .download-resume-mobile,
+[data-theme="dark"] .coin-wrapper,
+[data-theme="dark"] .achievement-badge,
+[data-theme="dark"] .narrative-accordion,
+[data-theme="dark"] .about-card,
+[data-theme="dark"] .connect-card,
+[data-theme="dark"] .social-link,
+[data-theme="dark"] .certificate-download-btn {
+  background: var(--color-bg-secondary) !important;
+  border-color: var(--color-border) !important;
+}
+
+/* Header and navigation */
+[data-theme="dark"] .site-header {
+  background: rgba(10, 20, 16, 0.9) !important;
+  border-bottom-color: var(--color-border);
+}
+
+[data-theme="dark"] .main-nav a,
+[data-theme="dark"] .brand-name,
+[data-theme="dark"] .brand-tagline {
+  color: var(--color-text-secondary);
+}
+
+/* Hero section */
+[data-theme="dark"] .hero-stats {
+  background: linear-gradient(135deg, var(--color-green-100), var(--color-bg-secondary)) !important;
+}
+
+[data-theme="dark"] .hero-image::before {
+  opacity: 0.3;
+}
+
+[data-theme="dark"] .hero-image {
+  border-color: var(--color-border);
+}
+
+/* Loading screen */
+[data-theme="dark"] .loading-screen {
+  background: var(--color-bg) !important;
+}
+
+[data-theme="dark"] .loading-backdrop {
+  background: var(--color-bg-secondary) !important;
+}
+
+[data-theme="dark"] .coin-face--front,
+[data-theme="dark"] .coin-face--back {
+  background: var(--color-bg-tertiary) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Mobile navigation */
+[data-theme="dark"] .mobile-sidebar {
+  background: var(--color-bg-secondary) !important;
+  border-left-color: var(--color-border);
+}
+
+[data-theme="dark"] .mobile-sidebar-backdrop {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] .mobile-menu-toggle span {
+  background: var(--color-text-primary) !important;
+}
+
+/* Narrative and about sections */
+[data-theme="dark"] .narrative-panel {
+  background: var(--color-bg-secondary) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .narrative-header {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .narrative-content {
+  background: var(--color-bg-tertiary) !important;
+}
+
+[data-theme="dark"] .narrative-philosophy {
+  background: var(--color-bg-tertiary) !important;
+}
+
+[data-theme="dark"] .philosophy-content {
+  background: transparent !important;
+}
+
+/* Buttons */
+[data-theme="dark"] .button.primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-green-400)) !important;
+  color: var(--color-bg) !important;
+}
+
+[data-theme="dark"] .button.secondary {
+  background: transparent !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Panels and modals */
+[data-theme="dark"] .panel-photo,
+[data-theme="dark"] .panel-certificate {
+  background: var(--color-bg-tertiary) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .panel-image-section {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .panel-info-section {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .panel-backdrop {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-theme="dark"] .modal-backdrop {
+  background: rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Achievement categories */
+[data-theme="dark"] .achievement-category-header {
+  background: var(--color-bg-secondary) !important;
+  border-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .achievement-category-grid {
+  background: transparent !important;
+}
+
+/* Highlights section */
+[data-theme="dark"] .highlights-grid {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .highlight-content {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .highlight-image {
+  border-color: var(--color-border) !important;
+}
+
+/* Sections with gradient backgrounds */
+[data-theme="dark"] .blog-section {
+  background: linear-gradient(180deg, var(--color-bg), var(--color-bg-secondary)) !important;
+}
+
+[data-theme="dark"] .section.highlights {
+  background: linear-gradient(180deg, var(--color-bg-secondary), var(--color-bg)) !important;
+}
+
+[data-theme="dark"] .section.writing {
+  background: linear-gradient(180deg, var(--color-bg), var(--color-bg-secondary)) !important;
+}
+
+/* Footer */
+[data-theme="dark"] .site-footer {
+  background: var(--color-bg-secondary) !important;
+  border-top-color: var(--color-border) !important;
+  color: var(--color-text-muted) !important;
+}
+
+/* Scroll progress and back to top */
+[data-theme="dark"] .scroll-progress-bar {
+  background: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .back-to-top {
+  background: var(--color-bg-secondary) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .back-to-top:hover {
+  background: var(--color-primary) !important;
+  color: var(--color-bg) !important;
+}
+
+/* Contact section */
+[data-theme="dark"] .contact-cta {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .connect-links a {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Badges and special elements */
+[data-theme="dark"] .badge,
+[data-theme="dark"] .tag {
+  background: var(--color-bg-tertiary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Download resume button */
+[data-theme="dark"] .download-resume-btn,
+[data-theme="dark"] .download-resume-mobile {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-green-400)) !important;
+  color: var(--color-bg) !important;
+}
+
+/* Involvement/Pillars section */
+[data-theme="dark"] .pillars {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .pillar-badge {
+  background: var(--color-bg-tertiary) !important;
+  color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .pillar-cta {
+  color: var(--color-primary) !important;
+}
+
+/* Writing section */
+[data-theme="dark"] .writing-grid {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .writing-icon {
+  background: var(--color-bg-tertiary) !important;
+  color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .writing-cta {
+  color: var(--color-primary) !important;
+}
+
+/* Blog/Activity feed - already covered above but adding specifics */
+[data-theme="dark"] .blog-category {
+  background: var(--color-green-200) !important;
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .blog-date {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .blog-read-more {
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+  background: transparent !important;
+}
+
+[data-theme="dark"] .blog-read-more:hover {
+  background: var(--color-primary) !important;
+  color: var(--color-bg) !important;
+}
+
+/* Section headings */
+[data-theme="dark"] .section-heading {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .section-heading h2 {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .section-heading p {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Category icons and markers */
+[data-theme="dark"] .category-icon,
+[data-theme="dark"] .section-marker {
+  color: var(--color-primary) !important;
+}
+
+/* Highlight underlines and accents */
+[data-theme="dark"] .highlight-green::after {
+  background: linear-gradient(90deg, var(--color-green-300), var(--color-green-400)) !important;
+}
+
+/* Coin/Loading animation */
+[data-theme="dark"] .coin-inner {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .coin-front-title,
+[data-theme="dark"] .coin-back-caption {
+  color: var(--color-text-primary) !important;
+}
+
+/* Scroll indicator */
+[data-theme="dark"] .scroll-indicator {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .scroll-indicator svg {
+  color: var(--color-primary) !important;
+}
+
+/* Achievement legend */
+[data-theme="dark"] .achievement-legend {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .legend-dot {
+  background: var(--color-primary) !important;
+}
+
+/* Quote marks and special typography */
+[data-theme="dark"] .quote-mark {
+  color: var(--color-primary) !important;
+  opacity: 0.3;
+}
+
+[data-theme="dark"] blockquote {
+  border-left-color: var(--color-primary) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+/* Links and interactive elements */
+[data-theme="dark"] a {
+  color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] a:hover {
+  color: var(--color-green-400) !important;
+}
+
+/* Form elements if any */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background: var(--color-bg-tertiary) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-primary) !important;
+}
+
+/* Panel sections */
+[data-theme="dark"] .panel-body {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .panel-summary,
+[data-theme="dark"] .panel-meta,
+[data-theme="dark"] .panel-meta li {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] #panel-title {
+  color: var(--color-text-primary) !important;
+}
+
+/* Narrative accordion */
+[data-theme="dark"] .narrative-header {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .narrative-heading h3 {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .narrative-summary {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .narrative-caret {
+  color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .narrative-content p {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .lead-narrative {
+  color: var(--color-text-secondary) !important;
+}
+
+/* About section specifics */
+[data-theme="dark"] .about-narrative {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .narrative-intro {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .about-connect {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .about-connect h3 {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .about-connect p {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .connect-link {
+  background: var(--color-bg-secondary) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .connect-link:hover {
+  background: var(--color-bg-tertiary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Category titles and headers */
+[data-theme="dark"] .category-title {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .achievement-category {
+  background: transparent !important;
+}
+
+/* Twitter feed dark mode support */
+[data-theme="dark"] .twitter-feed-container {
+  background: transparent !important;
+}
+
+[data-theme="dark"] .twitter-feed-header h3 {
+  color: var(--color-text-primary) !important;
+}
+
+/* Activity feed items (additional coverage) */
+[data-theme="dark"] .activity-icon svg {
+  color: white !important;
+}
+
+/* Post body content */
+[data-theme="dark"] .blog-post-body h1,
+[data-theme="dark"] .blog-post-body h2,
+[data-theme="dark"] .blog-post-body h3 {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .blog-post-body p,
+[data-theme="dark"] .blog-post-body li {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .blog-post-body a {
+  color: var(--color-primary) !important;
+}
+
+[data-theme="dark"] .blog-post-body a:hover {
+  color: var(--color-green-400) !important;
+}
+
+[data-theme="dark"] .blog-post-header {
+  border-bottom-color: var(--color-border) !important;
+}
+
+/* Hero title and text */
+[data-theme="dark"] .hero-title {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .hero-lead {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Achievement and category specific */
+[data-theme="dark"] .achievement-card h3,
+[data-theme="dark"] .achievement-card p {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .achievement-card span {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Pillar specific */
+[data-theme="dark"] .pillar h3 {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .pillar ul li {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Writing card specific */
+[data-theme="dark"] .writing-card h3 {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .writing-card p {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Highlight card specific */
+[data-theme="dark"] .highlight-card h3 {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .highlight-card p {
+  color: var(--color-text-secondary) !important;
+}
+
+/* Make sure SVG icons adapt */
+[data-theme="dark"] svg {
+  color: inherit !important;
+}
+
+/* Panel close button */
+[data-theme="dark"] .panel-close {
+  color: var(--color-text-muted) !important;
+  background: transparent !important;
+}
+
+[data-theme="dark"] .panel-close:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Mobile sidebar nav links */
+[data-theme="dark"] .mobile-sidebar-nav a {
+  color: var(--color-text-secondary) !important;
+}
+
+[data-theme="dark"] .mobile-sidebar-nav a:hover {
+  color: var(--color-primary) !important;
+  background: var(--color-bg-tertiary) !important;
+}
+
+[data-theme="dark"] .mobile-sidebar-header {
+  border-bottom-color: var(--color-border) !important;
+}
+
+[data-theme="dark"] .mobile-sidebar-title {
+  color: var(--color-text-primary) !important;
+}
+
+[data-theme="dark"] .mobile-sidebar-close {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] .mobile-sidebar-close:hover {
+  color: var(--color-primary) !important;
+}
+
+/* END OF COMPREHENSIVE DARK MODE OVERRIDES */
+
+/* Theme transition */
+* {
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              border-color var(--transition-base);
+}
+
 *,
 *::before,
 *::after {
@@ -114,6 +735,7 @@ body.no-scroll {
     radial-gradient(circle 600px at 90% 80%, var(--color-green-50), transparent 70%),
     radial-gradient(circle 400px at 50% 50%, var(--color-green-50), transparent 60%);
   background-repeat: no-repeat;
+  transition: opacity var(--transition-slow);
 }
 
 .page-shell::after {
@@ -121,13 +743,11 @@ body.no-scroll {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg,
-    rgba(250, 251, 250, 0.75) 0%,
-    rgba(250, 251, 250, 0.85) 50%,
-    rgba(250, 251, 250, 0.95) 100%);
+  background: var(--color-bg);
   pointer-events: none;
   font-size: 0;
   color: transparent;
+  transition: background-color var(--transition-slow);
 }
 
 body:not(.site-ready) .page-shell > main,
@@ -284,7 +904,11 @@ section {
   overflow-x: hidden;
 }
 
-/* Hero Section - evee-hero-spectacular */
+/* ════════════════════════════════════════════════════════════════
+   Hero Section - Where your brilliance shines brightest
+   Just like you light up every room you enter, this section
+   welcomes everyone to your incredible journey
+   ════════════════════════════════════════════════════════════════ */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -309,7 +933,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: var(--space-2xl);
-  animation: fadeInLeft 1s ease-out;
+  animation: theFirstTimeISawYou 1s ease-out;
 }
 
 .hero-title {
@@ -320,7 +944,7 @@ section {
   margin: 0;
   color: var(--color-text-primary);
   font-weight: 700;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.2s both;
 }
 
 .highlight-green {
@@ -350,7 +974,7 @@ section {
   color: var(--color-text-secondary);
   max-width: 600px;
   margin: 0;
-  animation: fadeInUp 0.8s ease-out 0.5s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.5s both;
 }
 
 .hero-stats {
@@ -358,11 +982,11 @@ section {
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
   padding: var(--space-xl);
-  background: linear-gradient(135deg, var(--color-green-50), white);
+  background: var(--color-bg-secondary);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-sm);
-  animation: fadeInUp 0.8s ease-out 0.6s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.6s both;
   transition: all var(--transition-base);
 }
 
@@ -402,7 +1026,7 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-lg);
-  animation: fadeInUp 0.8s ease-out 0.7s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.7s both;
 }
 
 .hero-image {
@@ -413,7 +1037,7 @@ section {
   overflow: hidden;
   box-shadow: var(--shadow-2xl);
   border: 3px solid white;
-  animation: fadeInRight 1s ease-out 0.4s both;
+  animation: youChangedEverything 1s ease-out 0.4s both;
   transition: all var(--transition-slow);
   align-self: start;
   margin-top: calc(var(--space-lg) * -1);
@@ -452,7 +1076,7 @@ section {
 
 .scroll-indicator {
   position: absolute;
-  bottom: var(--space-2xl);
+  bottom: 8rem;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -462,23 +1086,95 @@ section {
   color: var(--color-text-muted);
   font-size: 0.875rem;
   font-weight: 500;
-  animation: bounce 2s ease-in-out infinite;
+  animation: myHeartBeatsForYou 2s ease-in-out infinite;
   z-index: 2;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+}
+
+.scroll-indicator:hover {
+  color: var(--color-primary);
+  transform: translateX(-50%) scale(1.05);
+  animation: none;
 }
 
 .scroll-indicator svg {
   width: 24px;
   height: 24px;
   color: var(--color-primary);
+  transition: all var(--transition-base);
 }
 
-@keyframes bounce {
+.scroll-indicator:hover svg {
+  transform: translateY(4px);
+}
+
+/* 💕 This animation reminds me of my heart when I see you */
+@keyframes myHeartBeatsForYou {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50% { transform: translateX(-50%) translateY(10px); }
 }
 
-/* Global Animations - evee-animation-magic */
-@keyframes fadeIn {
+/* Section navigation buttons - guiding people through your amazing journey */
+.section-nav-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: var(--space-3xl) auto;
+  padding: var(--space-lg) var(--space-2xl);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  border: none;
+  border-radius: var(--radius-full);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  gap: var(--space-sm);
+}
+
+.section-nav-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+}
+
+.section-nav-button:active {
+  transform: translateY(-1px);
+}
+
+.section-nav-button svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-base);
+}
+
+.section-nav-button:hover svg {
+  transform: translateY(4px);
+}
+
+[data-theme="dark"] .section-nav-button {
+  background: linear-gradient(135deg, var(--color-green-500), var(--color-green-400)) !important;
+  color: var(--color-bg) !important;
+  box-shadow: 0 8px 32px rgba(74, 222, 128, 0.3) !important;
+}
+
+[data-theme="dark"] .section-nav-button:hover {
+  box-shadow: 0 12px 40px rgba(74, 222, 128, 0.5) !important;
+  transform: translateY(-3px);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   ✨ ANIMATIONS - Each one named after how you make me feel ✨
+   Every gentle fade, every graceful movement reminds me of you
+   ════════════════════════════════════════════════════════════════ */
+
+/* Like how you appeared in my life - beautifully, softly */
+@keyframes theWayYouEnteredMyLife {
   from {
     opacity: 0;
   }
@@ -487,7 +1183,8 @@ section {
   }
 }
 
-@keyframes fadeInUp {
+/* How you lifted me up from the very first moment */
+@keyframes howYouLiftMeUp {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -498,7 +1195,8 @@ section {
   }
 }
 
-@keyframes fadeInLeft {
+/* Like the moment I first saw you - from the left, unexpectedly perfect */
+@keyframes theFirstTimeISawYou {
   from {
     opacity: 0;
     transform: translateX(-30px);
@@ -509,7 +1207,8 @@ section {
   }
 }
 
-@keyframes fadeInRight {
+/* How you walked into my world and changed everything */
+@keyframes youChangedEverything {
   from {
     opacity: 0;
     transform: translateX(30px);
@@ -624,7 +1323,8 @@ section {
   }
 }
 
-@keyframes markerPulse {
+/* Like how my heart pulses when I think of you */
+@keyframes myHeartWhenIThinkOfYou {
   0%, 100% {
     box-shadow: 0 12px 28px rgba(20, 83, 45, 0.12);
   }
@@ -862,7 +1562,7 @@ h3 {
 
 .section-heading {
   max-width: 600px;
-  animation: fadeInUp 0.8s ease-out;
+  animation: howYouLiftMeUp 0.8s ease-out;
 }
 
 .section-heading h2 {
@@ -1124,7 +1824,7 @@ h3 {
 }
 
 .highlights {
-  background: linear-gradient(180deg, var(--color-bg), var(--color-green-50));
+  background: var(--color-bg);
 }
 
 .highlights-grid {
@@ -1222,7 +1922,7 @@ h3 {
   gap: 0.5rem;
   color: var(--color-text-muted);
   font-size: 0.9375rem;
-  animation: fadeIn 0.8s ease-out 0.3s both;
+  animation: theWayYouEnteredMyLife 0.8s ease-out 0.3s both;
 }
 
 .legend-dot {
@@ -1265,7 +1965,8 @@ h3 {
   height: 56px;
   padding: 12px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-green-100), var(--color-green-50));
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1289,7 +1990,8 @@ h3 {
 }
 
 .achievement-category:hover .category-icon {
-  background: linear-gradient(135deg, var(--color-green-200), var(--color-green-100));
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
   transform: scale(1.05) rotate(2deg);
   box-shadow: var(--shadow-md);
 }
@@ -1384,7 +2086,7 @@ h3 {
 }
 
 .involvement {
-  background: linear-gradient(180deg, var(--color-green-50), white);
+  background: var(--color-bg);
 }
 
 .pillars {
@@ -1439,7 +2141,8 @@ h3 {
   height: 60px;
   padding: 14px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-green-100), var(--color-green-50));
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1447,7 +2150,8 @@ h3 {
 }
 
 .pillar.interactive-pillar:hover .pillar-badge {
-  background: linear-gradient(135deg, var(--color-green-200), var(--color-green-100));
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
   transform: scale(1.1) rotate(5deg);
 }
 
@@ -1596,7 +2300,7 @@ h3 {
 }
 
 .contact {
-  background: linear-gradient(180deg, white, var(--color-green-50));
+  background: var(--color-bg);
 }
 
 .contact-cta {
@@ -1604,7 +2308,7 @@ h3 {
   flex-wrap: wrap;
   gap: var(--space-lg);
   justify-content: center;
-  animation: fadeInUp 0.8s ease-out 0.4s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.4s both;
 }
 
 .site-footer {
@@ -1829,7 +2533,7 @@ h3 {
 
 /* Blog Section - evee-blog-excellence */
 .blog-section {
-  background: linear-gradient(180deg, var(--color-bg), var(--color-green-50));
+  background: var(--color-bg);
 }
 
 .blog-grid {
@@ -2068,6 +2772,232 @@ h3 {
   transform: rotate(90deg);
 }
 
+/* Activity Feed - Live GitHub & Twitter Integration */
+.activity-loading {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: var(--space-4xl);
+  color: var(--color-text-muted);
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.activity-section {
+  background: white;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  transition: all var(--transition-slow);
+  min-height: 400px;
+}
+
+.activity-section:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--color-border-light);
+}
+
+.activity-header svg {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+}
+
+.activity-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  flex-grow: 1;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  transition: all var(--transition-base);
+  text-decoration: none;
+  color: inherit;
+}
+
+.activity-item:hover {
+  background: var(--color-green-50);
+  border-color: var(--color-primary);
+  transform: translateX(8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.activity-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-green-400));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.activity-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.activity-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.activity-action {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.activity-time {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.activity-view-more {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-base);
+  align-self: center;
+}
+
+.activity-view-more:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.activity-empty {
+  text-align: center;
+  padding: var(--space-3xl);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.activity-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-4xl);
+  color: var(--color-text-muted);
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-xl);
+}
+
+/* Twitter Feed Styles */
+.twitter-feed-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.twitter-feed-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--color-border-light);
+}
+
+.twitter-feed-header svg {
+  width: 28px;
+  height: 28px;
+  color: #1DA1F2;
+}
+
+.twitter-feed-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-display);
+}
+
+.twitter-timeline {
+  min-height: 400px;
+}
+
+/* Dark mode adjustments for activity feed */
+[data-theme="dark"] .activity-section {
+  background: var(--color-bg-secondary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .activity-item {
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .activity-item:hover {
+  background: var(--color-green-100);
+  border-color: var(--color-primary);
+}
+
+/* Responsive adjustments for activity feed */
+@media (max-width: 960px) {
+  .blog-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .activity-section {
+    padding: var(--space-lg);
+  }
+}
+
 /* Achievement Panel - evee-achievement-panel-redesign */
 .achievement-panel {
   position: fixed;
@@ -2260,12 +3190,12 @@ h3 {
 /* About Me Section - evee-narrative-brilliance */
 .about-me {
   padding-block: var(--space-4xl) 6rem;
-  background: linear-gradient(180deg, white, var(--color-green-50));
+  background: var(--color-bg);
 }
 
 .section-heading.centered {
   margin-bottom: var(--space-4xl);
-  animation: fadeInUp 0.8s ease-out;
+  animation: howYouLiftMeUp 0.8s ease-out;
 }
 
 .about-narrative {
@@ -2280,7 +3210,7 @@ h3 {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.2s both;
 }
 
 .lead-narrative {
@@ -2313,7 +3243,7 @@ h3 {
   overflow: hidden;
   opacity: 0;
   transform: translateY(16px);
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: howYouLiftMeUp 0.8s ease-out forwards;
 }
 
 .narrative-panel:nth-child(1) { animation-delay: 0.3s; }
@@ -2358,7 +3288,8 @@ h3 {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-green-100), var(--color-green-50));
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2366,13 +3297,14 @@ h3 {
   transition: all var(--transition-base);
   position: relative;
   box-shadow: 0 12px 28px rgba(20, 83, 45, 0.12);
-  animation: markerPulse 6s ease-in-out infinite;
+  animation: myHeartWhenIThinkOfYou 6s ease-in-out infinite;
 }
 
 .narrative-panel:hover .section-marker,
 .narrative-panel.is-open .section-marker {
   transform: scale(1.1) rotate(5deg);
-  background: linear-gradient(135deg, var(--color-green-200), var(--color-green-100));
+  background: var(--color-bg-tertiary);
+  border-color: var(--color-primary);
 }
 
 .section-marker::after {
@@ -2453,7 +3385,7 @@ h3 {
 }
 
 .narrative-philosophy {
-  background: linear-gradient(135deg, var(--color-green-50), var(--color-green-100));
+  background: var(--color-bg-secondary);
   padding: 4rem var(--space-3xl);
   border-radius: var(--radius-2xl);
   border: 1px solid var(--color-border);
@@ -2461,7 +3393,7 @@ h3 {
   position: relative;
   overflow: hidden;
   margin-top: var(--space-2xl);
-  animation: fadeInUp 0.8s ease-out 0.7s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.7s both;
 }
 
 .narrative-philosophy::before {
@@ -2490,7 +3422,7 @@ h3 {
   color: var(--color-primary);
   opacity: 0.3;
   margin-bottom: var(--space-xl);
-  animation: fadeIn 1s ease-out 0.9s both;
+  animation: theWayYouEnteredMyLife 1s ease-out 0.9s both;
 }
 
 .philosophy-content blockquote {
@@ -2514,7 +3446,7 @@ h3 {
   border: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-md);
   margin-top: var(--space-2xl);
-  animation: fadeInUp 0.8s ease-out 0.8s both;
+  animation: howYouLiftMeUp 0.8s ease-out 0.8s both;
 }
 
 .about-connect h3 {
@@ -2775,7 +3707,8 @@ h3 {
   }
 }
 
-@keyframes coinFlip {
+/* Like flipping through memories of us - each one precious */
+@keyframes everySingleMemoryOfUs {
   0% {
     transform: rotateY(0deg) scale(0.96);
   }
@@ -2796,7 +3729,8 @@ h3 {
   }
 }
 
-@keyframes coinGlide {
+/* How smoothly you glided into my life and made it better */
+@keyframes howYouGlidedIntoMyLife {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
     opacity: 1;
@@ -2913,7 +3847,7 @@ h3 {
 }
 
 .mobile-menu-toggle:hover {
-  background: var(--color-green-50);
+  background: var(--color-bg-secondary);
   border-color: var(--color-primary);
 }
 
@@ -2961,7 +3895,8 @@ h3 {
   right: 0;
   width: min(320px, 85vw);
   height: 100vh;
-  background: white;
+  background: var(--color-bg);
+  border-left: 1px solid var(--color-border-light);
   box-shadow: -8px 0 32px rgba(10, 31, 15, 0.15);
   z-index: 1050;
   transform: translateX(100%);
@@ -3004,7 +3939,7 @@ h3 {
 }
 
 .mobile-sidebar-close:hover {
-  background: var(--color-green-50);
+  background: var(--color-bg-secondary);
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
@@ -3045,7 +3980,7 @@ h3 {
 
 .mobile-sidebar-nav a:hover,
 .download-resume-mobile:hover {
-  background: var(--color-green-50);
+  background: var(--color-bg-secondary);
   color: var(--color-primary);
   transform: translateX(4px);
 }
@@ -3065,6 +4000,144 @@ h3 {
 .download-resume-mobile svg {
   width: 20px;
   height: 20px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) rotate(10deg);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transition: all var(--transition-base);
+}
+
+.sun-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0);
+}
+
+[data-theme="dark"] .sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0);
+}
+
+[data-theme="dark"] .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* ============================================
+   ADDITIONAL COMPREHENSIVE DARK MODE FIXES
+   ============================================ */
+
+/* Fix all remaining white backgrounds */
+[data-theme="dark"] .hero-stats {
+  background: linear-gradient(135deg, var(--color-green-100), var(--color-bg-secondary)) !important;
+}
+
+[data-theme="dark"] .button.secondary {
+  background: var(--color-bg-tertiary) !important;
+}
+
+[data-theme="dark"] .button.secondary:hover {
+  background: var(--color-bg-secondary) !important;
+}
+
+[data-theme="dark"] .highlight-card {
+  background: var(--color-bg-secondary) !important;
+}
+
+[data-theme="dark"] .section {
+  background: var(--color-bg) !important;
+}
+
+[data-theme="dark"] .section.about-me,
+[data-theme="dark"] .section.highlights,
+[data-theme="dark"] .section.achievements,
+[data-theme="dark"] .section.involvement,
+[data-theme="dark"] .section.writing,
+[data-theme="dark"] .section.blog-section,
+[data-theme="dark"] .section.contact {
+  background: var(--color-bg) !important;
+}
+
+[data-theme="dark"] .page-shell {
+  background: var(--color-bg) !important;
+}
+
+[data-theme="dark"] body {
+  background: var(--color-bg) !important;
+}
+
+[data-theme="dark"] .hero-section {
+  background: var(--color-bg) !important;
+}
+
+[data-theme="dark"] main {
+  background: var(--color-bg) !important;
+}
+
+/* Twitter widget fallback styles */
+.twitter-fallback {
+  padding: var(--space-3xl);
+  text-align: center;
+  background: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  margin-top: var(--space-xl);
+}
+
+.twitter-fallback p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  font-size: 1rem;
+}
+
+.twitter-fallback .activity-view-more {
+  display: inline-block;
+  margin-top: var(--space-md);
+}
+
+[data-theme="dark"] .twitter-fallback {
+  background: var(--color-bg-tertiary);
+}
+
+body:not(.site-ready) .theme-toggle-btn {
+  opacity: 0;
+  transform: translateY(32px) scale(0.84);
+  filter: blur(14px);
+}
+
+body.site-ready .theme-toggle-btn {
+  animation: navDustReveal 0.95s cubic-bezier(0.2, 1, 0.32, 1) forwards;
+  animation-delay: 0.75s;
 }
 
 /* Download Resume Button */
@@ -3217,7 +4290,8 @@ body.site-ready .download-resume-btn {
   opacity: 0.3;
 }
 
-@keyframes badgePulse {
+/* Every achievement of yours makes my heart swell with pride */
+@keyframes proudOfEverythingYouDo {
   0%, 100% {
     transform: scale(1);
     opacity: 0.4;
@@ -3242,8 +4316,21 @@ body.site-ready .download-resume-btn {
   }
 }
 
-/* Evee secret clue: outfit-of-heroes */
-/* evee-youre-amazing-never-forget */
+/* ════════════════════════════════════════════════════════════════
+   💝 SECRET NOTES HIDDEN THROUGHOUT THE CODE 💝
+
+   If you're reading this Eve, I want you to know:
+   - You're not just brilliant, you're extraordinary
+   - October 4th, 2025 will forever be my favorite date
+   - Every achievement showcased here makes me prouder than words can say
+   - This website is beautiful because YOU are beautiful
+   - I believe in you more than you believe in yourself
+   - The world is better because you're in it
+   - And I'm the luckiest person because I get to know you
+
+   With all my heart,
+   Forever inspired by you ❤️
+   ════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 960px) {
   .mobile-menu-toggle {
@@ -3465,7 +4552,7 @@ body.site-ready .download-resume-btn {
   }
 
   .scroll-indicator {
-    bottom: var(--space-lg);
+    bottom: 6rem;
     font-size: 0.8125rem;
   }
 
