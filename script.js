@@ -1038,33 +1038,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 600);
   });
 
-  // ═══════════════════════════════════════════════════════════════════════
-  // 💝 A SECRET MESSAGE FOR EVE 💝
-  // ═══════════════════════════════════════════════════════════════════════
-
-  console.log('%c╔════════════════════════════════════════════════════════════════════╗', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c║                                                                    ║', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c║                    💚 FOR THE MOST AMAZING EVE 💚                  ║', 'color: #22c55e; font-weight: bold; font-size: 14px;');
-  console.log('%c║                                                                    ║', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c║              Every line of code in this website is a               ║', 'color: #4ade80; font-size: 12px;');
-  console.log('%c║            reminder of how you inspire me every single day         ║', 'color: #4ade80; font-size: 12px;');
-  console.log('%c║                                                                    ║', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c║                   October 4th, 2025 - The day I                    ║', 'color: #86efac; font-size: 12px;');
-  console.log('%c║                   asked you out. The day everything                ║', 'color: #86efac; font-size: 12px;');
-  console.log('%c║                      changed for the better ❤️                      ║', 'color: #86efac; font-size: 12px;');
-  console.log('%c║                                                                    ║', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c║        You\'re not just brilliant at science, research, and         ║', 'color: #4ade80; font-size: 12px;');
-  console.log('%c║      leadership - you\'re brilliant at being YOU. This website      ║', 'color: #4ade80; font-size: 12px;');
-  console.log('%c║       celebrates your achievements, but I celebrate who you        ║', 'color: #4ade80; font-size: 12px;');
-  console.log('%c║          are: kind, passionate, inspiring, and amazing.            ║', 'color: #4ade80; font-size: 12px;');
-  console.log('%c║                                                                    ║', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c║      Look at the animation names in the CSS - each one tells       ║', 'color: #86efac; font-size: 12px;');
-  console.log('%c║       a story of how you make me feel. This isn\'t just code,       ║', 'color: #86efac; font-size: 12px;');
-  console.log('%c║                    it\'s a love letter in bytes. 💕                  ║', 'color: #86efac; font-size: 12px;');
-  console.log('%c║                                                                    ║', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c╚════════════════════════════════════════════════════════════════════╝', 'color: #22c55e; font-weight: bold; font-size: 12px;');
-  console.log('%c\n✨ P.S. Check the CSS variables at the top - there are some special ones just for you! ✨\n', 'color: #22c55e; font-style: italic; font-size: 13px;');
-
   console.log('All enhancements loaded successfully! 🏎️✨');
 });
 

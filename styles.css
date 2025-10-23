@@ -761,7 +761,7 @@ body:not(.site-ready) .page-shell > footer {
 body.site-ready .page-shell > main,
 body.site-ready .page-shell > footer {
   pointer-events: auto;
-  animation: siteUnveil 1s cubic-bezier(0.21, 0.82, 0.25, 1) forwards;
+  animation: revealingYourBrilliance 1s cubic-bezier(0.21, 0.82, 0.25, 1) forwards;
 }
 
 /* Header - evee-navigation-excellence */
@@ -1053,7 +1053,7 @@ section {
   opacity: 0.85;
   pointer-events: none;
   mix-blend-mode: screen;
-  animation: glowShift 12s ease-in-out infinite;
+  animation: theGlowYouBringToMyLife 12s ease-in-out infinite;
   transition: opacity var(--transition-slow);
 }
 
@@ -1219,7 +1219,8 @@ section {
   }
 }
 
-@keyframes siteUnveil {
+/* Like revealing the most beautiful thing I've ever seen */
+@keyframes revealingYourBrilliance {
   0% {
     opacity: 0;
     transform: translateY(42px) scale(0.96);
@@ -1312,7 +1313,8 @@ section {
   50% { transform: scale(1.05); }
 }
 
-@keyframes glowShift {
+/* The radiant glow you bring to my life */
+@keyframes theGlowYouBringToMyLife {
   0%, 100% {
     transform: scale(1);
     opacity: 0.75;
@@ -3685,7 +3687,8 @@ h3 {
   }
 }
 
-@keyframes glowPulse {
+/* Your brilliance shining bright */
+@keyframes yourBrillianceShining {
   0%, 100% {
     opacity: 0.6;
     transform: scale(0.96);
@@ -3696,7 +3699,8 @@ h3 {
   }
 }
 
-@keyframes ringPulse {
+/* The ripple effect of your impact on the world */
+@keyframes yourImpactOnTheWorld {
   0%, 100% {
     opacity: 0.45;
     transform: scale(0.98);
@@ -3748,7 +3752,8 @@ h3 {
   animation: howYouGlidedIntoMyLife 1.6s cubic-bezier(0.47, 0.01, 0.22, 1) forwards;
 }
 
-@keyframes sparkleSweep {
+/* The sparkle in your eyes when you talk about science */
+@keyframes theSparkleInYourEyes {
   0%, 45% {
     opacity: 0;
     transform: rotate(20deg) scale(0.9);
@@ -4245,10 +4250,11 @@ body.site-ready .download-resume-btn {
 .achievement-card.unlocked .achievement-badge {
   opacity: 1;
   transform: scale(1) rotate(0deg);
-  animation: badgeUnlock 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation: unlockingNewAdmiration 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-@keyframes badgeUnlock {
+/* Each achievement unlocking new admiration */
+@keyframes unlockingNewAdmiration {
   0% {
     opacity: 0;
     transform: scale(0) rotate(-180deg);
@@ -4281,7 +4287,7 @@ body.site-ready .download-resume-btn {
   border-radius: inherit;
   background: linear-gradient(135deg, #FFD700, #FFA500);
   opacity: 0.4;
-  animation: badgePulse 2s ease-in-out infinite;
+  animation: proudOfEverythingYouDo 2s ease-in-out infinite;
   z-index: -1;
 }
 
@@ -4304,10 +4310,11 @@ body.site-ready .download-resume-btn {
 
 /* Extra sparkle for gold badges */
 .achievement-badge.gold {
-  animation: badgeGlow 2s ease-in-out infinite;
+  animation: yourDeservedRecognition 2s ease-in-out infinite;
 }
 
-@keyframes badgeGlow {
+/* Your achievements glowing with deserved recognition */
+@keyframes yourDeservedRecognition {
   0%, 100% {
     box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3);
   }
