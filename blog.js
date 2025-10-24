@@ -136,46 +136,56 @@ class ActivityFeed {
     return 'just now';
   }
 
-  // Fetch X posts via Nitter RSS
+  // Fetch X posts via Nitter RSS with CORS proxy
   async fetchXPosts() {
-    // Try multiple Nitter instances
-    for (const instance of this.nitterInstances) {
-      try {
-        const rssUrl = `https://${instance}/${this.twitterUsername}/rss`;
-        const response = await fetch(rssUrl, {
-          headers: {
-            'Accept': 'application/rss+xml, application/xml, text/xml'
-          }
-        });
+    const corsProxies = [
+      'https://corsproxy.io/?',
+      'https://api.allorigins.win/raw?url=',
+      'https://cors-anywhere.herokuapp.com/'
+    ];
 
-        if (!response.ok) continue;
+    // Try multiple Nitter instances with CORS proxies
+    for (const proxy of corsProxies) {
+      for (const instance of this.nitterInstances) {
+        try {
+          const rssUrl = `https://${instance}/${this.twitterUsername}/rss`;
+          const proxiedUrl = proxy + encodeURIComponent(rssUrl);
 
-        const xmlText = await response.text();
-        const parser = new DOMParser();
-        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
-
-        const items = xmlDoc.querySelectorAll('item');
-        const posts = [];
-
-        items.forEach((item, index) => {
-          if (index >= 5) return; // Limit to 5 posts
-
-          const title = item.querySelector('title')?.textContent || '';
-          const link = item.querySelector('link')?.textContent || '';
-          const pubDate = item.querySelector('pubDate')?.textContent || '';
-          const description = item.querySelector('description')?.textContent || '';
-
-          posts.push({
-            text: title || description.replace(/<[^>]*>/g, '').substring(0, 280),
-            link: link.replace(instance, 'x.com'),
-            date: new Date(pubDate),
-            timeAgo: this.getTimeAgo(new Date(pubDate))
+          const response = await fetch(proxiedUrl, {
+            headers: {
+              'Accept': 'application/rss+xml, application/xml, text/xml'
+            }
           });
-        });
 
-        if (posts.length > 0) return posts;
-      } catch (error) {
-        continue; // Try next instance
+          if (!response.ok) continue;
+
+          const xmlText = await response.text();
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+          const items = xmlDoc.querySelectorAll('item');
+          const posts = [];
+
+          items.forEach((item, index) => {
+            if (index >= 5) return; // Limit to 5 posts
+
+            const title = item.querySelector('title')?.textContent || '';
+            const link = item.querySelector('link')?.textContent || '';
+            const pubDate = item.querySelector('pubDate')?.textContent || '';
+            const description = item.querySelector('description')?.textContent || '';
+
+            posts.push({
+              text: title || description.replace(/<[^>]*>/g, '').substring(0, 280),
+              link: link.replace(instance, 'x.com'),
+              date: new Date(pubDate),
+              timeAgo: this.getTimeAgo(new Date(pubDate))
+            });
+          });
+
+          if (posts.length > 0) return posts;
+        } catch (error) {
+          continue; // Try next combination
+        }
       }
     }
 
