@@ -6,10 +6,10 @@ class ActivityFeed {
     this.githubUsername = 'Eve-Carruthers';
     this.twitterUsername = 'EveCarruthers_';
     this.nitterInstances = [
-      'nitter.net',
-      'nitter.privacydev.net',
       'nitter.poast.org',
-      'nitter.1d4.us'
+      'nitter.privacydev.net',
+      'nitter.net',
+      'xcancel.com'
     ];
   }
 
@@ -136,32 +136,50 @@ class ActivityFeed {
     return 'just now';
   }
 
-  // Fetch X posts via RSS2JSON API
+  // Fetch X posts by scraping Nitter HTML with AllOrigins full response
   async fetchXPosts() {
-    // Try multiple Nitter instances with RSS2JSON
+    // Try fetching HTML from Nitter instances via AllOrigins
     for (const instance of this.nitterInstances) {
       try {
-        const rssUrl = `https://${instance}/${this.twitterUsername}/rss`;
-        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=5`;
+        const nitterUrl = `https://${instance}/${this.twitterUsername}`;
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(nitterUrl)}`;
 
-        const response = await fetch(apiUrl);
-
+        const response = await fetch(proxyUrl);
         if (!response.ok) continue;
 
         const data = await response.json();
+        if (!data.contents) continue;
 
-        if (data.status === 'ok' && data.items && data.items.length > 0) {
-          const posts = data.items.map(item => ({
-            text: item.title || item.description.replace(/<[^>]*>/g, '').substring(0, 280),
-            link: item.link.replace(instance, 'x.com'),
-            date: new Date(item.pubDate),
-            timeAgo: this.getTimeAgo(new Date(item.pubDate))
-          }));
+        // Parse the HTML
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data.contents, 'text/html');
 
-          return posts;
-        }
+        // Find tweet elements (Nitter structure)
+        const tweetItems = doc.querySelectorAll('.timeline-item');
+        const posts = [];
+
+        tweetItems.forEach((item, index) => {
+          if (index >= 5) return; // Limit to 5
+
+          const tweetText = item.querySelector('.tweet-content')?.textContent?.trim() || '';
+          const tweetLink = item.querySelector('.tweet-link')?.getAttribute('href') || '';
+          const tweetDate = item.querySelector('.tweet-date a')?.getAttribute('title') || '';
+
+          if (tweetText && tweetLink) {
+            const fullLink = tweetLink.startsWith('http') ? tweetLink : `https://x.com${tweetLink}`;
+
+            posts.push({
+              text: tweetText.substring(0, 280),
+              link: fullLink.replace(instance, 'x.com'),
+              date: tweetDate ? new Date(tweetDate) : new Date(),
+              timeAgo: tweetDate ? this.getTimeAgo(new Date(tweetDate)) : 'Recent'
+            });
+          }
+        });
+
+        if (posts.length > 0) return posts;
       } catch (error) {
-        continue; // Try next instance
+        continue;
       }
     }
 
