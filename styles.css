@@ -162,7 +162,7 @@
 
 /* Hero section */
 [data-theme="dark"] .hero-stats {
-  background: linear-gradient(135deg, var(--color-green-100), var(--color-bg-secondary)) !important;
+  background: var(--color-bg-secondary) !important;
 }
 
 [data-theme="dark"] .hero-image::before {
@@ -777,6 +777,8 @@ body.site-ready .page-shell > footer {
   background: rgba(250, 251, 250, 0.85);
   border-bottom: 1px solid var(--color-border-light);
   transition: all var(--transition-base);
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 body:not(.site-ready) .site-header {
@@ -4137,7 +4139,7 @@ h3 {
 
 /* Fix all remaining white backgrounds */
 [data-theme="dark"] .hero-stats {
-  background: linear-gradient(135deg, var(--color-green-100), var(--color-bg-secondary)) !important;
+  background: var(--color-bg-secondary) !important;
 }
 
 [data-theme="dark"] .button.secondary {

@@ -1043,8 +1043,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Attach event listeners to both theme toggle buttons
   themeToggleBtn.addEventListener('click', toggleTheme);
   themeToggleMobile.addEventListener('click', toggleTheme);
-
-  console.log('All enhancements loaded successfully! 🏎️✨');
 });
 
 // Hidden whisper: evee-lightspeed-love

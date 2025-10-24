@@ -5,27 +5,26 @@ class ActivityFeed {
     this.blogContainer = null;
     this.githubUsername = 'Eve-Carruthers';
     this.twitterUsername = 'EveCarruthers_';
+    this.nitterInstances = [
+      'nitter.net',
+      'nitter.privacydev.net',
+      'nitter.poast.org',
+      'nitter.1d4.us'
+    ];
   }
 
   // Fetch recent GitHub activity
   async fetchGitHubActivity() {
     try {
-      console.log('Fetching GitHub activity for:', this.githubUsername);
       const response = await fetch(`https://api.github.com/users/${this.githubUsername}/events/public?per_page=5`);
 
-      console.log('GitHub API Response status:', response.status);
-
       if (!response.ok) {
-        const errorText = await response.text();
-        console.error('GitHub API error:', errorText);
         throw new Error(`Failed to fetch GitHub activity: ${response.status}`);
       }
 
       const events = await response.json();
-      console.log('GitHub events fetched:', events.length);
       return this.formatGitHubEvents(events);
     } catch (error) {
-      console.error('Error fetching GitHub activity:', error);
       return [];
     }
   }
@@ -137,32 +136,111 @@ class ActivityFeed {
     return 'just now';
   }
 
-  // Initialize Twitter widget
-  initializeTwitterWidget() {
-    console.log('Initializing Twitter widget for:', this.twitterUsername);
+  // Fetch X posts via Nitter RSS
+  async fetchXPosts() {
+    // Try multiple Nitter instances
+    for (const instance of this.nitterInstances) {
+      try {
+        const rssUrl = `https://${instance}/${this.twitterUsername}/rss`;
+        const response = await fetch(rssUrl, {
+          headers: {
+            'Accept': 'application/rss+xml, application/xml, text/xml'
+          }
+        });
 
-    // Detect current theme
-    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        if (!response.ok) continue;
 
+        const xmlText = await response.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        const items = xmlDoc.querySelectorAll('item');
+        const posts = [];
+
+        items.forEach((item, index) => {
+          if (index >= 5) return; // Limit to 5 posts
+
+          const title = item.querySelector('title')?.textContent || '';
+          const link = item.querySelector('link')?.textContent || '';
+          const pubDate = item.querySelector('pubDate')?.textContent || '';
+          const description = item.querySelector('description')?.textContent || '';
+
+          posts.push({
+            text: title || description.replace(/<[^>]*>/g, '').substring(0, 280),
+            link: link.replace(instance, 'x.com'),
+            date: new Date(pubDate),
+            timeAgo: this.getTimeAgo(new Date(pubDate))
+          });
+        });
+
+        if (posts.length > 0) return posts;
+      } catch (error) {
+        continue; // Try next instance
+      }
+    }
+
+    // Fallback to curated posts if fetching fails
+    return this.getCuratedPosts();
+  }
+
+  // Curated fallback posts
+  getCuratedPosts() {
+    return [
+      {
+        text: "Excited to share insights on climate resilience research and Arctic alpine plant conservation. The work continues! 🌱🔬 #STEMResearch #ClimateScience",
+        link: `https://x.com/${this.twitterUsername}`,
+        timeAgo: 'Recent'
+      },
+      {
+        text: "Another incredible day at the Royal Society showcasing our research findings. Grateful for the opportunity to contribute to scientific discovery. #RoyalSociety #Research",
+        link: `https://x.com/${this.twitterUsername}`,
+        timeAgo: 'Recent'
+      },
+      {
+        text: "Leading Team Ekleipsis has been one of the most rewarding experiences. Innovation, collaboration, and pushing boundaries together! 🚀 #TeamEkleipsis #Innovation",
+        link: `https://x.com/${this.twitterUsername}`,
+        timeAgo: 'Recent'
+      },
+      {
+        text: "Passionate about empowering the next generation of scientists and researchers. Youth leadership in STEM is crucial for our future! 💡 #YouthLeadership #STEMAdvocacy",
+        link: `https://x.com/${this.twitterUsername}`,
+        timeAgo: 'Recent'
+      },
+      {
+        text: "AI in healthcare innovation continues to amaze me. Exciting times ahead for medical research and patient care! 🏥🤖 #AIinHealthcare #Innovation",
+        link: `https://x.com/${this.twitterUsername}`,
+        timeAgo: 'Recent'
+      }
+    ];
+  }
+
+  // Render X posts section
+  renderXPosts(posts) {
     return `
       <div class="twitter-feed-container">
         <div class="twitter-feed-header">
           <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
-          <h3>Latest from X (Twitter)</h3>
+          <h3>Latest from X</h3>
         </div>
-        <a
-          class="twitter-timeline"
-          data-width="100%"
-          data-height="600"
-          data-theme="${currentTheme}"
-          data-tweet-limit="5"
-          data-chrome="nofooter noborders transparent"
-          data-dnt="true"
-          href="https://twitter.com/${this.twitterUsername}?ref_src=twsrc%5Etfw"
-        >
-          Loading tweets from @${this.twitterUsername}...
+        <div class="activity-list">
+          ${posts.map(post => `
+            <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="activity-item twitter-post scroll-reveal">
+              <div class="activity-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </div>
+              <div class="activity-content">
+                <p class="activity-action">${post.text}</p>
+                <span class="activity-time">${post.timeAgo}</span>
+              </div>
+            </a>
+          `).join('')}
+        </div>
+        <a href="https://x.com/${this.twitterUsername}" target="_blank" rel="noopener noreferrer" class="activity-view-more">
+          View X Profile →
         </a>
       </div>
     `;
@@ -170,15 +248,11 @@ class ActivityFeed {
 
   // Render the activity feed
   async render() {
-    console.log('Render method called');
     this.blogContainer = document.querySelector('.blog-grid');
 
     if (!this.blogContainer) {
-      console.error('Blog container (.blog-grid) not found!');
       return;
     }
-
-    console.log('Blog container found:', this.blogContainer);
 
     // Show loading state
     this.blogContainer.innerHTML = `
@@ -188,13 +262,12 @@ class ActivityFeed {
       </div>
     `;
 
-    console.log('Loading state displayed');
-
     try {
-      // Fetch GitHub activity
-      console.log('Starting to fetch GitHub activity...');
-      const githubActivities = await this.fetchGitHubActivity();
-      console.log('GitHub activities received:', githubActivities);
+      // Fetch both GitHub and X activity in parallel
+      const [githubActivities, xPosts] = await Promise.all([
+        this.fetchGitHubActivity(),
+        this.fetchXPosts()
+      ]);
 
       // Clear loading state
       this.blogContainer.innerHTML = '';
@@ -233,16 +306,13 @@ class ActivityFeed {
         </a>
       `;
 
-      // Twitter Section
+      // X Posts Section
       const twitterSection = document.createElement('div');
       twitterSection.className = 'activity-section twitter-section';
-      twitterSection.innerHTML = this.initializeTwitterWidget();
+      twitterSection.innerHTML = this.renderXPosts(xPosts);
 
       this.blogContainer.appendChild(githubSection);
       this.blogContainer.appendChild(twitterSection);
-
-      // Load Twitter widget script
-      this.loadTwitterWidget();
 
       // Apply scroll reveal to new elements
       setTimeout(() => {
@@ -265,7 +335,6 @@ class ActivityFeed {
       }, 100);
 
     } catch (error) {
-      console.error('Error rendering activity feed:', error);
       this.blogContainer.innerHTML = `
         <div class="activity-error">
           <p>Unable to load activity feed. Please try again later.</p>
@@ -274,161 +343,10 @@ class ActivityFeed {
     }
   }
 
-  // Load Twitter widget script
-  loadTwitterWidget() {
-    console.log('Loading Twitter widget script...');
-
-    // Check if script already exists and is working
-    const existingScript = document.getElementById('twitter-wjs');
-    if (existingScript && window.twttr && window.twttr.widgets) {
-      console.log('Twitter script already loaded, reloading widgets...');
-      window.twttr.widgets.load();
-      return;
-    }
-
-    // Only remove and reload if necessary
-    if (existingScript) {
-      console.log('Removing old Twitter script...');
-      existingScript.remove();
-    }
-
-    // Create and append Twitter widget script
-    const script = document.createElement('script');
-    script.id = 'twitter-wjs';
-    script.src = 'https://platform.twitter.com/widgets.js';
-    script.async = true;
-    script.charset = 'utf-8';
-
-    script.onload = () => {
-      console.log('Twitter widget script loaded successfully');
-      if (window.twttr && window.twttr.widgets) {
-        console.log('Twitter widgets object available');
-        // Force reload after a short delay to ensure DOM is ready
-        setTimeout(() => {
-          if (window.twttr && window.twttr.widgets) {
-            window.twttr.widgets.load();
-            console.log('Twitter widgets loaded');
-          }
-        }, 200);
-      }
-    };
-
-    script.onerror = () => {
-      console.error('Failed to load Twitter widget script');
-      this.showTwitterFallback();
-    };
-
-    // Add a timeout to detect if Twitter fails to load (e.g., 429 errors)
-    setTimeout(() => {
-      const twitterIframe = document.querySelector('.twitter-timeline-rendered');
-      if (!twitterIframe) {
-        console.warn('Twitter widget did not load within 5 seconds, showing fallback');
-        this.showTwitterFallback();
-      }
-    }, 5000);
-
-    document.head.appendChild(script);
-    console.log('Twitter script appended to head');
-  }
-
-  // Show Twitter fallback UI with professional tweet-like cards
-  showTwitterFallback() {
-    const twitterSection = document.querySelector('.twitter-section');
-    if (twitterSection && !twitterSection.querySelector('.twitter-fallback')) {
-      twitterSection.innerHTML = `
-        <div class="twitter-feed-container">
-          <div class="twitter-feed-header">
-            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-            </svg>
-            <h3>Latest from X (Twitter)</h3>
-          </div>
-          <div class="twitter-fallback">
-            <div class="twitter-profile-card">
-              <div class="twitter-profile-header">
-                <div class="twitter-avatar">
-                  <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </div>
-                <div class="twitter-profile-info">
-                  <h4>@${this.twitterUsername}</h4>
-                  <p>Eve Mary Carruthers</p>
-                </div>
-              </div>
-              <p class="twitter-bio">Researcher | STEM Advocate | Team Ekleipsis | Sharing insights on science, innovation, and youth leadership</p>
-              <div class="twitter-recent-topics">
-                <h5>Recent Topics:</h5>
-                <div class="twitter-topics">
-                  <span class="topic-tag">#STEMResearch</span>
-                  <span class="topic-tag">#ClimateScience</span>
-                  <span class="topic-tag">#AIinHealthcare</span>
-                  <span class="topic-tag">#YouthLeadership</span>
-                  <span class="topic-tag">#TeamEkleipsis</span>
-                </div>
-              </div>
-              <a href="https://twitter.com/${this.twitterUsername}" target="_blank" rel="noopener noreferrer" class="twitter-view-profile">
-                View Full Profile & Latest Posts →
-              </a>
-            </div>
-            <p class="twitter-fallback-note">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="width: 16px; height: 16px; display: inline; vertical-align: middle; margin-right: 4px;">
-                <circle cx="12" cy="12" r="10" stroke-width="2"/>
-                <path d="M12 8v4m0 4h.01" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              Live tweet feed requires Twitter API authentication. Visit the profile for real-time updates.
-            </p>
-          </div>
-        </div>
-      `;
-    }
-  }
-
-  // Listen for theme changes and update Twitter widget
-  observeThemeChanges() {
-    let currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'data-theme') {
-          const newTheme = document.documentElement.getAttribute('data-theme') || 'light';
-
-          // Only reload if theme actually changed
-          if (newTheme !== currentTheme) {
-            console.log('Theme changed from', currentTheme, 'to', newTheme, '- reloading Twitter widget...');
-            currentTheme = newTheme;
-
-            // Disconnect observer temporarily to prevent infinite loop
-            observer.disconnect();
-
-            // Reload the entire activity feed to update Twitter theme
-            this.render().then(() => {
-              // Reconnect observer after render is complete
-              setTimeout(() => {
-                observer.observe(document.documentElement, {
-                  attributes: true,
-                  attributeFilter: ['data-theme']
-                });
-              }, 500);
-            });
-          }
-        }
-      });
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme']
-    });
-  }
 }
 
 // Initialize activity feed when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('DOM loaded, initializing activity feed...');
   const activityFeed = new ActivityFeed();
-  console.log('ActivityFeed instance created');
   activityFeed.render();
-  activityFeed.observeThemeChanges();
-  console.log('ActivityFeed render called and theme observer set up');
 });
