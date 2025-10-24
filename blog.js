@@ -136,56 +136,32 @@ class ActivityFeed {
     return 'just now';
   }
 
-  // Fetch X posts via Nitter RSS with CORS proxy
+  // Fetch X posts via RSS2JSON API
   async fetchXPosts() {
-    const corsProxies = [
-      'https://corsproxy.io/?',
-      'https://api.allorigins.win/raw?url=',
-      'https://cors-anywhere.herokuapp.com/'
-    ];
+    // Try multiple Nitter instances with RSS2JSON
+    for (const instance of this.nitterInstances) {
+      try {
+        const rssUrl = `https://${instance}/${this.twitterUsername}/rss`;
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&count=5`;
 
-    // Try multiple Nitter instances with CORS proxies
-    for (const proxy of corsProxies) {
-      for (const instance of this.nitterInstances) {
-        try {
-          const rssUrl = `https://${instance}/${this.twitterUsername}/rss`;
-          const proxiedUrl = proxy + encodeURIComponent(rssUrl);
+        const response = await fetch(apiUrl);
 
-          const response = await fetch(proxiedUrl, {
-            headers: {
-              'Accept': 'application/rss+xml, application/xml, text/xml'
-            }
-          });
+        if (!response.ok) continue;
 
-          if (!response.ok) continue;
+        const data = await response.json();
 
-          const xmlText = await response.text();
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+        if (data.status === 'ok' && data.items && data.items.length > 0) {
+          const posts = data.items.map(item => ({
+            text: item.title || item.description.replace(/<[^>]*>/g, '').substring(0, 280),
+            link: item.link.replace(instance, 'x.com'),
+            date: new Date(item.pubDate),
+            timeAgo: this.getTimeAgo(new Date(item.pubDate))
+          }));
 
-          const items = xmlDoc.querySelectorAll('item');
-          const posts = [];
-
-          items.forEach((item, index) => {
-            if (index >= 5) return; // Limit to 5 posts
-
-            const title = item.querySelector('title')?.textContent || '';
-            const link = item.querySelector('link')?.textContent || '';
-            const pubDate = item.querySelector('pubDate')?.textContent || '';
-            const description = item.querySelector('description')?.textContent || '';
-
-            posts.push({
-              text: title || description.replace(/<[^>]*>/g, '').substring(0, 280),
-              link: link.replace(instance, 'x.com'),
-              date: new Date(pubDate),
-              timeAgo: this.getTimeAgo(new Date(pubDate))
-            });
-          });
-
-          if (posts.length > 0) return posts;
-        } catch (error) {
-          continue; // Try next combination
+          return posts;
         }
+      } catch (error) {
+        continue; // Try next instance
       }
     }
 
