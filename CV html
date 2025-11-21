@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eve Carruthers | Executive CV</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        
+        h1, h2, .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        @page {
+            margin: 0;
+            size: A4;
+        }
+
+        @media print {
+            .no-print { display: none; }
+            body { background-color: white; }
+            .page-container {
+                box-shadow: none;
+                margin: 0;
+                width: 100%;
+                max-width: 100%;
+            }
+            /* Force background colors in print */
+            .bg-slate-900 { background-color: #0f172a !important; }
+            .bg-teal-500 { background-color: #14b8a6 !important; }
+            .bg-teal-50 { background-color: #f0fdfa !important; }
+            .text-teal-600 { color: #0d9488 !important; }
+        }
+    </style>
+</head>
+<body class="bg-gray-200 text-slate-800 min-h-screen flex justify-center items-start py-10 print:py-0">
+
+    <!-- Control Bar (Hidden in Print) -->
+    <div class="no-print fixed top-0 left-0 w-full bg-slate-900 text-white p-3 shadow-lg z-50 flex justify-between items-center">
+        <div class="font-bold flex items-center gap-2">
+            <i class="fas fa-file-signature text-teal-400"></i> Executive Preview
+        </div>
+        <button onclick="window.print()" class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-1.5 px-4 rounded shadow transition text-sm">
+            <i class="fas fa-download mr-2"></i> Save as PDF
+        </button>
+    </div>
+
+    <!-- CV Page (A4 Dimensions) -->
+    <div class="page-container w-[210mm] min-h-[297mm] bg-white shadow-2xl overflow-hidden relative mx-auto print:w-full print:h-full">
+        
+        <!-- Top Header Band -->
+        <header class="bg-slate-900 text-white p-8 pb-10 relative overflow-hidden">
+            <!-- Decorative Background Element -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-teal-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 translate-x-1/2 -translate-y-1/2"></div>
+            
+            <div class="flex justify-between items-end relative z-10">
+                <div>
+                    <h1 class="text-5xl font-bold tracking-tight uppercase mb-2">Eve <span class="text-teal-400">Carruthers</span></h1>
+                    <p class="text-xl font-light text-gray-300 tracking-wide">Computational Researcher & Web Developer</p>
+                    
+                    <div class="flex gap-6 mt-6 text-sm text-gray-300 font-medium">
+                        <a href="mailto:evemarycarruthers@gmail.com" class="flex items-center hover:text-teal-400 transition"><i class="fas fa-envelope mr-2 text-teal-500"></i> evemarycarruthers@gmail.com</a>
+                        <a href="https://evecarruthers.com" class="flex items-center hover:text-teal-400 transition"><i class="fas fa-globe mr-2 text-teal-500"></i> evecarruthers.com</a>
+                        <a href="https://github.com/Eve-Carruthers" class="flex items-center hover:text-teal-400 transition"><i class="fab fa-github mr-2 text-teal-500"></i> Eve-Carruthers</a>
+                    </div>
+                </div>
+
+                <!-- Key Impact Stats (Right aligned) -->
+                <div class="hidden sm:block text-right">
+                    <div class="flex flex-col items-end gap-2">
+                        <div class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg shadow-lg">
+                            <span class="block text-xs text-teal-400 font-bold uppercase tracking-wider">Academic Rank</span>
+                            <span class="block text-2xl font-bold text-white">#1 of 103</span>
+                        </div>
+                        <div class="bg-slate-800 border border-slate-700 px-4 py-2 rounded-lg shadow-lg">
+                            <span class="block text-xs text-teal-400 font-bold uppercase tracking-wider">Grades</span>
+                            <span class="block text-2xl font-bold text-white">12 A** (Predicted)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Layout: Two Columns -->
+        <div class="grid grid-cols-12 h-full">
+            
+            <!-- Left Sidebar (Skills & Education) -->
+            <aside class="col-span-12 md:col-span-4 bg-slate-50 border-r border-slate-200 p-6 pt-8">
+                
+                <!-- Education Section -->
+                <div class="mb-8">
+                    <h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 pb-2 border-b-2 border-teal-500">
+                        <i class="fas fa-graduation-cap text-teal-600"></i> Education
+                    </h3>
+                    
+                    <div class="mb-4">
+                        <h4 class="font-bold text-lg text-slate-900 leading-tight">Beaulieu Convent School</h4>
+                        <p class="text-sm text-slate-600 mb-2">Jersey, Channel Islands</p>
+                        <div class="inline-block bg-teal-100 text-teal-800 text-xs font-bold px-2 py-1 rounded mb-2">
+                            Ranked #1 in Year
+                        </div>
+                        <p class="text-xs text-slate-500 font-medium">Predicted: 12 Grade 9s (A**)</p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-bold text-sm text-slate-800">Harvard CS50</span>
+                                <i class="fas fa-code text-teal-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-slate-500">Introduction to Computer Science (Ongoing)</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-bold text-sm text-slate-800">Oxford Univ.</span>
+                                <i class="fas fa-atom text-teal-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-slate-500">Undergraduate Particle Physics</p>
+                        </div>
+                        <div class="bg-white p-3 rounded border border-slate-200 shadow-sm">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="font-bold text-sm text-slate-800">MIT Modules</span>
+                                <i class="fas fa-dna text-teal-500 text-xs"></i>
+                            </div>
+                            <p class="text-xs text-slate-500">Biochemistry & Biology</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Stack -->
+                <div class="mb-8">
+                    <h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 pb-2 border-b-2 border-teal-500">
+                        <i class="fas fa-laptop-code text-teal-600"></i> Tech Stack
+                    </h3>
+                    
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-slate-800 text-white text-xs font-bold rounded">Python</span>
+                        <span class="px-3 py-1 bg-slate-800 text-white text-xs font-bold rounded">CFD / CAD</span>
+                        <span class="px-3 py-1 bg-slate-800 text-white text-xs font-bold rounded">Web Dev</span>
+                        <span class="px-3 py-1 bg-white border border-slate-300 text-slate-700 text-xs font-bold rounded">Excel</span>
+                        <span class="px-3 py-1 bg-white border border-slate-300 text-slate-700 text-xs font-bold rounded">Statistics</span>
+                    </div>
+                </div>
+
+                <!-- Work Ethic / Capacity -->
+                <div class="mb-8">
+                    <h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 pb-2 border-b-2 border-teal-500">
+                        <i class="fas fa-battery-full text-teal-600"></i> Capacity
+                    </h3>
+                    <p class="text-xs text-slate-600 leading-relaxed mb-2">
+                        Demonstrated ability to manage high-performance outputs across multiple domains simultaneously:
+                    </p>
+                    <ul class="text-xs space-y-2 text-slate-700 font-medium">
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-teal-500 mt-0.5"></i>
+                            Maintain #1 Academic Rank
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-teal-500 mt-0.5"></i>
+                            15+ Hrs/Wk Competitive Coaching
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-teal-500 mt-0.5"></i>
+                            Managing Editor (Space News)
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fas fa-check text-teal-500 mt-0.5"></i>
+                            Lead Researcher (Royal Society)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Awards -->
+                <div>
+                    <h3 class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-widest mb-4 pb-2 border-b-2 border-teal-500">
+                        <i class="fas fa-trophy text-teal-600"></i> Honors
+                    </h3>
+                    <div class="space-y-3">
+                        <div>
+                            <span class="block text-xs font-bold text-slate-900">Jersey TechAwards Finalist</span>
+                            <span class="block text-[10px] text-slate-500">Computational Modeling</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-slate-900">F1 in Schools Champion</span>
+                            <span class="block text-[10px] text-slate-500">Regional R&D Winner</span>
+                        </div>
+                        <div>
+                            <span class="block text-xs font-bold text-slate-900">HPQ Research Project</span>
+                            <span class="block text-[10px] text-slate-500">A* (100%) - AI in Oncology</span>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+            <!-- Right Column (Main Content) -->
+            <main class="col-span-12 md:col-span-8 p-8">
+                
+                <!-- Profile -->
+                <div class="mb-8">
+                    <h2 class="text-2xl font-bold text-slate-900 mb-3">Executive Profile</h2>
+                    <p class="text-sm text-slate-600 leading-relaxed text-justify">
+                        A multidisciplinary researcher and high-performance student bridging the gap between <strong>biological experimentation</strong> and <strong>computational physics</strong>. I do not just study science; I execute it through grant-funded research and engineering competitions. With a strong foundation in Python, data analysis, and web development, I am seeking high-impact opportunities to apply technical rigor to complex problems in biotech and computational modeling.
+                    </p>
+                </div>
+
+                <!-- Research & Impact Section -->
+                <section class="mb-10">
+                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-2 mb-5 flex items-center">
+                        <span class="bg-slate-900 text-white w-6 h-6 rounded flex items-center justify-center text-xs mr-2"><i class="fas fa-flask"></i></span>
+                        Scientific Leadership & Research
+                    </h2>
+
+                    <!-- Item 1 -->
+                    <div class="mb-6 group">
+                        <div class="flex justify-between items-start mb-1">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 group-hover:text-teal-600 transition">Lead Researcher</h3>
+                                <p class="text-sm font-bold text-teal-600">Royal Society Partnership Grant</p>
+                            </div>
+                            <span class="text-xs font-semibold bg-slate-100 px-2 py-1 rounded text-slate-500">Genetics & Statistics</span>
+                        </div>
+                        <p class="text-xs italic text-slate-500 mb-2">Investigating Climate Change Effects on Plant Biology</p>
+                        <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
+                            <li><strong>Designed Experiments:</strong> Created controlled protocols to quantify physiological plant responses to environmental stressors.</li>
+                            <li><strong>Data Analysis:</strong> Processed genetic data using statistical methods to identify patterns in stress adaptation.</li>
+                            <li><strong>Recognition:</strong> Selected presenter at the <strong>Royal Society Summer Science Exhibition</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="mb-6 group">
+                        <div class="flex justify-between items-start mb-1">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 group-hover:text-teal-600 transition">Team Principal & Head of R&D</h3>
+                                <p class="text-sm font-bold text-teal-600">F1 in Schools (Regional Champions)</p>
+                            </div>
+                            <span class="text-xs font-semibold bg-slate-100 px-2 py-1 rounded text-slate-500">CFD & Physics</span>
+                        </div>
+                        <p class="text-xs italic text-slate-500 mb-2">Aerodynamics & Bio-Mimicry Application</p>
+                        <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
+                            <li><strong>Computational Modeling:</strong> Engineered aerodynamic profiles using <strong>CAD/CFD simulations</strong>, achieving Regional Championship.</li>
+                            <li><strong>Innovation:</strong> Applied bio-mimicry (shark skin effect) to optimize airflow, demonstrating the intersection of biology and engineering.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="mb-2 group">
+                        <div class="flex justify-between items-start mb-1">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 group-hover:text-teal-600 transition">Independent Researcher (HPQ)</h3>
+                                <p class="text-sm font-bold text-teal-600">Oncology & Artificial Intelligence</p>
+                            </div>
+                            <span class="text-xs font-semibold bg-slate-100 px-2 py-1 rounded text-slate-500">Research Synthesis</span>
+                        </div>
+                        <ul class="list-disc list-outside ml-4 text-sm text-slate-600 space-y-1">
+                            <li>Authored a comprehensive paper evaluating ethical risks and technical benefits of AI in cancer detection.</li>
+                            <li><strong>Outcome:</strong> Awarded 100% (A*), demonstrating graduate-level research capability.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Professional Experience -->
+                <section class="mb-8">
+                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-2 mb-5 flex items-center">
+                        <span class="bg-slate-900 text-white w-6 h-6 rounded flex items-center justify-center text-xs mr-2"><i class="fas fa-briefcase"></i></span>
+                        Professional Experience
+                    </h2>
+
+                    <div class="mb-5">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-base text-slate-900">COO, Web Lead & Senior Writer</h3>
+                            <span class="text-xs font-bold text-slate-400">The Weekly Spaceman</span>
+                        </div>
+                        <p class="text-sm text-slate-600">
+                            Oversee full-stack website development, marketing strategy, and scientific writing for a space news platform. Translate complex astrophysical data into accessible articles.
+                        </p>
+                    </div>
+
+                    <div class="mb-5">
+                        <div class="flex justify-between items-baseline mb-1">
+                            <h3 class="font-bold text-base text-slate-900">Swimming Instructor & Competitive Coach</h3>
+                            <span class="text-xs font-bold text-slate-400">Jersey Swimming Club</span>
+                        </div>
+                        <p class="text-sm text-slate-600">
+                            Direct training for junior competitive divisions. Managed logistics and lesson planning for children aged 2-10.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Outreach Grid -->
+                <section>
+                    <h2 class="text-lg font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-2 mb-4 flex items-center">
+                        <span class="bg-slate-900 text-white w-6 h-6 rounded flex items-center justify-center text-xs mr-2"><i class="fas fa-bullhorn"></i></span>
+                        Leadership & Outreach
+                    </h2>
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-sm text-slate-600">
+                        <div class="flex items-center"><i class="fas fa-microphone text-teal-500 w-5"></i> Lecturer: Jersey Astronomy Society</div>
+                        <div class="flex items-center"><i class="fas fa-music text-teal-500 w-5"></i> Concertmaster: School Orchestra</div>
+                        <div class="flex items-center"><i class="fas fa-cloud text-teal-500 w-5"></i> Analyst: Cloud Spotting on Mars (NASA)</div>
+                        <div class="flex items-center"><i class="fas fa-landmark text-teal-500 w-5"></i> Member: Jersey Youth Parliament</div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
